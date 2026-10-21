@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 using System.Reflection.Metadata;
 
 namespace TechStoreMVC.Models;
@@ -6,6 +7,12 @@ namespace TechStoreMVC.Models;
 public class Produto
 {
     public int Id {get; set;}
+    [Required(ErrorMessage = "Informe um nome")]
+    [StringLength(
+        100,
+        MinimumLength = 3,
+        ErrorMessage = "O nome deve possuir de 3 a 100 caracteres."
+    )]
     public string Nome {get; set;}
     public decimal Preco {get; set;}
     public int Estoque {get; set;}
